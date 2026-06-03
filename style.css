@@ -7,11 +7,12 @@
 }
 
 html, body {
-    height: 100%;
     background-color: #0b0612;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; <-- REMOVIDO para não cortar o topo do site */
+    padding-top: 20px; /* Dá um respiro para a logo não colar no teto do navegador */
+    min-height: 100vh;
 }
 
 /* Renderização Pixel Art nítida para todas as imagens */
@@ -20,34 +21,22 @@ img {
     image-rendering: crisp-edges;
 }
 
-/* --- CONTAINER PRINCIPAL (1440x1024) --- */
+/* --- CONTAINER PRINCIPAL --- */
 .tela-container {
     width: 1440px;
-    height: 1024px;
-    position: relative;
-    background-image: url('cursos.png'); 
-    
-    /* CORREÇÃO AQUI: Força a imagem a ter 1440x1024 em vez de usar 'cover', impedindo o zoom que quebrava o layout */
-    background-size: 1440px 1024px; 
-    background-position: top center;
-    background-repeat: no-repeat;
-    
-    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Força o menu a ficar em cima e a imagem embaixo */
+    background-color: #0b0612;
 }
 
 /* --- CABEÇALHO --- */
 .header-superior {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 150px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 50px;
-    margin-top: 20px;
-    z-index: 10;
 }
 
 .logo {
@@ -106,4 +95,18 @@ img {
     background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(251, 255, 0, 1) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+/* --- IMAGEM CENTRAL --- */
+.conteudo-principal {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px; /* Dá um espacinho entre o menu e a imagem, ajuste se necessário */
+}
+
+.painel-cursos {
+    width: 1344px; /* Mantém a largura original da arte */
+    max-width: 100%;
+    object-fit: contain;
 }
