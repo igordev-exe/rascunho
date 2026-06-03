@@ -25,8 +25,8 @@ img {
     width: 1440px;
     height: 1024px;
     position: relative;
-    /* Imagem de fundo da biblioteca (certifique-se de que ela também está no GitHub) */
-    background-image: url('livros-os-cursos.png'); 
+    /* Imagem de fundo apontando para cursos.png na raiz do repositório */
+    background-image: url('cursos.png'); 
     background-size: cover;
     background-position: center;
     display: flex;
@@ -101,21 +101,4 @@ img {
     background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(251, 255, 0, 1) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-/* --- ÁREA PRINCIPAL DO PAINEL DE CURSOS --- */
-.conteudo-principal {
-    flex: 1; /* Ocupa o restante do espaço abaixo do menu */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 20px; 
-}
-
-.painel-cursos {
-    width: 1344px; /* Mantém a proporção do Figma */
-    max-height: 896px;
-    object-fit: contain;
-    /* Adicionando um leve efeito de sombra mágica para destacar o painel do fundo */
-    filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.8));
 }
