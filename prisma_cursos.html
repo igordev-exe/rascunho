@@ -1,234 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Prisma Cursos</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Tiny5&display=swap" rel="stylesheet">
-<style>
-* { -webkit-font-smoothing: antialiased; box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; }
-a { text-decoration: none; }
-
-.tela-inicial-de {
-  width: 100%;
-  min-width: 1440px;
-  min-height: 1024px;
-  position: relative;
-  background-image: url('img/biblioteca.png');
-  background-size: cover;
-  background-position: center center;
-  overflow: hidden;
-}
-
-.tela-inicial-de::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(10, 4, 25, 0.38);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ── LOGO ── */
-.tela-inicial-de .logo {
-  position: absolute;
-  top: 0;
-  left: 48px;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  z-index: 10;
-  image-rendering: pixelated;
-}
-
-/* ── MAGO ── */
-.tela-inicial-de .mago-python {
-  position: absolute;
-  top: calc(50% - 97px);
-  right: 0;
-  width: 554px;
-  height: 554px;
-  object-fit: cover;
-  z-index: 10;
-  image-rendering: pixelated;
-}
-
-/* ── BOLA DE CRISTAL ── */
-.tela-inicial-de .bola-de-cristal {
-  position: absolute;
-  top: 531px;
-  left: 89px;
-  width: 459px;
-  height: 459px;
-  background-image: url('img/bola-cristal.png');
-  background-size: cover;
-  background-position: 50% 50%;
-  z-index: 10;
-  cursor: pointer;
-  image-rendering: pixelated;
-  transition: filter 0.2s;
-}
-.tela-inicial-de .bola-de-cristal:hover {
-  filter: drop-shadow(0 0 28px #9b30ffbb);
-}
-
-/* ── BALÃO DE DIÁLOGO ── */
-.tela-inicial-de .caixas-dialogo-img {
-  position: absolute;
-  top: 242px;
-  left: 173px;
-  width: 595px;
-  height: 252px;
-  z-index: 11;
-  image-rendering: pixelated;
-}
-
-/* ── TEXTO DO BALÃO ── */
-.tela-inicial-de .coloque-a-m-o-na {
-  position: absolute;
-  top: 291px;
-  left: 225px;
-  width: 492px;
-  font-family: "Press Start 2P", monospace;
-  font-weight: 400;
-  color: #000000;
-  font-size: 22px;
-  text-align: center;
-  letter-spacing: 2px;
-  line-height: 1.7;
-  z-index: 12;
-}
-
-/* ── BARRA SUPERIOR (nav) ── */
-.tela-inicial-de .barra-superior {
-  position: absolute;
-  top: calc(50% - 462px);
-  left: 406px;
-  width: 996px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  z-index: 20;
-}
-
-.barra-superior span,
-.barra-superior a span {
-  font-family: "Tiny5", monospace;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: normal;
-  letter-spacing: 0;
-  cursor: pointer;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-decoration: underline;
-  text-decoration-color: currentColor;
-  display: inline-block;
-}
-
-/* Início — purple → grey */
-.nav-inicio {
-  height: 48px;
-  width: 111px;
-  white-space: nowrap;
-  background: linear-gradient(270deg, rgba(144,13,231,1) 0%, rgba(227,227,227,1) 100%);
-}
-
-/* Cursos — grey → green */
-.nav-cursos {
-  height: 45px;
-  width: 120px;
-  margin-left: 8px;
-  white-space: nowrap;
-  background: radial-gradient(50% 50% at 73% 50%, rgba(203,201,201,1) 0%, rgba(4,156,19,1) 100%);
-}
-
-/* Quem somos — white → grey → red */
-.nav-quem {
-  height: 50px;
-  width: 238px;
-  margin-left: 66px;
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(101,98,98,1) 50%, rgba(239,20,20,1) 100%);
-}
-
-/* Depoimentos — white → blue */
-.nav-depoimentos {
-  height: 45px;
-  width: 220px;
-  margin-left: 18px;
-  white-space: nowrap;
-  -webkit-text-stroke: 1px #000000;
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(19,7,255,1) 100%);
-}
-
-/* Contatos — white → yellow */
-.nav-contatos {
-  height: 45px;
-  width: 155px;
-  margin-left: 50px;
-  white-space: nowrap;
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(251,255,0,1) 100%);
-}
-
-/* ── CTA — bottom right ── */
-.tela-inicial-de .image {
-  position: absolute;
-  top: 875px;
-  left: 1116px;
-  width: 324px;
-  height: 149px;
-  object-fit: cover;
-  z-index: 10;
-  image-rendering: pixelated;
-  cursor: pointer;
-}
-
-/* scanline */
-.tela-inicial-de::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent 0px,
-    transparent 3px,
-    rgba(0,0,0,0.05) 3px,
-    rgba(0,0,0,0.05) 4px
-  );
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prisma Cursos - Tomos Mágicos</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Tiny5&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="tela-inicial-de">
 
-  <img class="logo" src="img/logo.png" alt="Prisma Cursos">
+    <div class="tela-container">
+        <header class="header-superior">
+            <img class="logo" src="img/image-2.png" alt="Logo Prisma Cursos">
+            
+            <nav class="menu-nav">
+                <a href="#" class="menu-item nav-inicio">Início</a>
+                <a href="#" class="menu-item nav-cursos">Cursos</a>
+                <a href="#" class="menu-item nav-quem-somos">Quem somos</a>
+                <a href="#" class="menu-item nav-depoimentos">Depoimentos</a>
+                <a href="#" class="menu-item nav-contatos">Contatos</a>
+            </nav>
+        </header>
 
-  <img class="mago-python" src="img/mago-python.png" alt="Mago Python">
+        <main class="conteudo-principal">
+            <img class="painel-cursos" src="img/rectangle-4.png" alt="Painel Tomos Mágicos">
+        </main>
+    </div>
 
-  <a href="https://igordev-exe.github.io/QuizMago/" target="_blank" rel="noopener noreferrer">
-    <div class="bola-de-cristal"></div>
-  </a>
-
-  <img class="caixas-dialogo-img" src="img/caixas-dialogo-img-2.png" alt="">
-
-  <p class="coloque-a-m-o-na">Coloque a mão na<br>bola de cristal<br>para descobrir<br>mais sobre seu potencial.</p>
-
-  <div class="barra-superior">
-    <span class="nav-inicio">Início</span>
-    <a href="#"><span class="nav-cursos">Cursos</span></a>
-    <span class="nav-quem">Quem somos</span>
-    <span class="nav-depoimentos">Depoimentos</span>
-    <span class="nav-contatos">Contatos</span>
-  </div>
-
-  <img class="image" src="img/image-20.png" alt="Clique na seta para começar os cursos">
-
-</div>
 </body>
 </html>
