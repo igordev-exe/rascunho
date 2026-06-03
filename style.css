@@ -10,12 +10,11 @@ html, body {
     background-color: #0b0612;
     display: flex;
     justify-content: center;
-    /* align-items: center; <-- REMOVIDO para não cortar o topo do site */
-    padding-top: 20px; /* Dá um respiro para a logo não colar no teto do navegador */
+    align-items: flex-start;
     min-height: 100vh;
+    padding-top: 20px;
 }
 
-/* Renderização Pixel Art nítida para todas as imagens */
 img {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
@@ -23,41 +22,43 @@ img {
 
 /* --- CONTAINER PRINCIPAL --- */
 .tela-container {
-    width: 1440px;
-    display: flex;
-    flex-direction: column; /* Força o menu a ficar em cima e a imagem embaixo */
+    width: 1344px;
+    position: relative; /* Pai relativo para o header absolute */
     background-color: #0b0612;
 }
 
-/* --- CABEÇALHO --- */
+/* --- CABEÇALHO: flutua SOBRE a imagem --- */
 .header-superior {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 150px;
+    height: 110px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 50px;
+    padding: 0 40px;
+    z-index: 10;
 }
 
 .logo {
-    width: 150px;
-    height: 150px;
+    width: 110px;
+    height: 110px;
     object-fit: contain;
 }
 
 /* --- MENU --- */
 .menu-nav {
     display: flex;
-    gap: 40px;
+    gap: 35px;
     align-items: center;
 }
 
 .menu-item {
     font-family: "Tiny5", sans-serif;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 32px;
     text-decoration: underline;
-    text-transform: none;
     transition: transform 0.2s ease;
 }
 
@@ -97,16 +98,13 @@ img {
     -webkit-text-fill-color: transparent;
 }
 
-/* --- IMAGEM CENTRAL --- */
+/* --- IMAGEM: ocupa todo o container --- */
 .conteudo-principal {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: 20px; /* Dá um espacinho entre o menu e a imagem, ajuste se necessário */
+    display: block;
 }
 
 .painel-cursos {
-    width: 1344px; /* Mantém a largura original da arte */
-    max-width: 100%;
-    object-fit: contain;
+    width: 100%;
+    display: block;
 }
