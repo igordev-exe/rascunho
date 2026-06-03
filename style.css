@@ -10,11 +10,12 @@ html, body {
     background-color: #0b0612;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
+    align-items: flex-start; /* Evita que o topo do site corte em telas menores */
     padding-top: 20px;
+    min-height: 100vh;
 }
 
+/* Renderização Pixel Art nítida para todas as imagens */
 img {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
@@ -22,43 +23,51 @@ img {
 
 /* --- CONTAINER PRINCIPAL --- */
 .tela-container {
-    width: 1344px;
-    position: relative; /* Pai relativo para o header absolute */
-    background-color: #0b0612;
+    width: 1440px;
+    min-height: 1024px;
+    position: relative;
+    
+    /* AQUI ENTRA A BIBLIOTECA VAZIA */
+    background-image: url('fundo.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Flexbox organizando menu em cima e painel embaixo */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-/* --- CABEÇALHO: flutua SOBRE a imagem --- */
+/* --- CABEÇALHO --- */
 .header-superior {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 110px;
+    height: 150px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
-    z-index: 10;
+    padding: 0 50px;
 }
 
 .logo {
-    width: 110px;
-    height: 110px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
 }
 
 /* --- MENU --- */
 .menu-nav {
     display: flex;
-    gap: 35px;
+    gap: 40px;
     align-items: center;
 }
 
 .menu-item {
     font-family: "Tiny5", sans-serif;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 40px;
     text-decoration: underline;
+    text-transform: none;
     transition: transform 0.2s ease;
 }
 
@@ -98,13 +107,19 @@ img {
     -webkit-text-fill-color: transparent;
 }
 
-/* --- IMAGEM: ocupa todo o container --- */
+/* --- ÁREA DO PAINEL DE CURSOS --- */
 .conteudo-principal {
     width: 100%;
-    display: block;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px; /* Ajuste o respiro entre o menu e o painel aqui */
 }
 
 .painel-cursos {
-    width: 100%;
-    display: block;
+    width: 1344px; /* Largura original da imagem do Figma */
+    max-width: 100%;
+    object-fit: contain;
+    /* Sombra mágica para destacar o painel da biblioteca de fundo */
+    filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.9));
 }
