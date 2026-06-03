@@ -1,34 +1,109 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prisma Cursos - Tomos Mágicos</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Tiny5&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="tela-container">
+/* --- RESET E CONFIGURAÇÕES BÁSICAS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
 
-        <!-- MENU: flutua sobre a imagem -->
-        <header class="header-superior">
-            <img class="logo" src="logo.png" alt="Logo Prisma Cursos">
-            <nav class="menu-nav">
-                <a href="#" class="menu-item nav-inicio">Início</a>
-                <a href="#" class="menu-item nav-cursos">Cursos</a>
-                <a href="#" class="menu-item nav-quem-somos">Quem somos</a>
-                <a href="#" class="menu-item nav-depoimentos">Depoimentos</a>
-                <a href="#" class="menu-item nav-contatos">Contatos</a>
-            </nav>
-        </header>
+html, body {
+    background-color: #0b0612;
+    display: flex;
+    justify-content: center;
+    /* CORREÇÃO 1: flex-start impede que o topo do site seja cortado em monitores menores */
+    align-items: flex-start; 
+    padding-top: 20px; /* Dá um respiro entre a logo e o topo do navegador */
+    min-height: 100vh;
+}
 
-        <!-- IMAGEM: base do layout -->
-        <main class="conteudo-principal">
-            <img class="painel-cursos" src="cursos.png" alt="Painel Tomos Mágicos">
-        </main>
+/* Renderização Pixel Art nítida para todas as imagens */
+img {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
 
-    </div>
-</body>
-</html>
+/* --- CONTAINER PRINCIPAL (1440x1024) --- */
+.tela-container {
+    width: 1440px;
+    height: 1024px;
+    position: relative;
+    background-image: url('cursos.png'); 
+    
+    /* CORREÇÃO 2: Força a imagem a ter exatamente o tamanho do contêiner, impedindo qualquer distorção ou zoom */
+    background-size: 1440px 1024px; 
+    background-position: top left;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* --- CABEÇALHO --- */
+.header-superior {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    z-index: 10;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+/* --- MENU --- */
+.menu-nav {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.menu-item {
+    font-family: "Tiny5", sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    text-decoration: underline;
+    text-transform: none;
+    transition: transform 0.2s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+}
+
+/* --- CORES DO MENU --- */
+.nav-inicio {
+    background: linear-gradient(270deg, rgba(144, 13, 231, 1) 0%, rgba(227, 227, 227, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-cursos {
+    background: radial-gradient(50% 50% at 73% 50%, rgba(203, 201, 201, 1) 0%, rgba(4, 156, 19, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-quem-somos {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(101, 98, 98, 1) 50%, rgba(239, 20, 20, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-depoimentos {
+    -webkit-text-stroke: 1px #000000;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(19, 7, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-contatos {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(251, 255, 0, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
