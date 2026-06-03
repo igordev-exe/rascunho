@@ -1,119 +1,36 @@
-/* --- RESET --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prisma Cursos - Tomos Mágicos</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Tiny5&display=swap" rel="stylesheet">
+</head>
+<body>
 
-html, body {
-    width: 100%;
-    height: 100%;
-    background-color: #0b0612;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    <div class="tela-container">
+        <!-- BLOCO 1: CABEÇALHO -->
+        <header class="header-superior">
+            <img class="logo" src="logo.png" alt="Logo Prisma Cursos">
+            
+            <nav class="menu-nav">
+                <a href="#" class="menu-item nav-inicio">Início</a>
+                <a href="#" class="menu-item nav-cursos">Cursos</a>
+                <a href="#" class="menu-item nav-quem-somos">Quem somos</a>
+                <a href="#" class="menu-item nav-depoimentos">Depoimentos</a>
+                <a href="#" class="menu-item nav-contatos">Contatos</a>
+            </nav>
+        </header>
 
-img {
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-}
+        <!-- BLOCO 2: PAINEL DE CURSOS -->
+        <main class="conteudo-principal">
+            <img class="painel-cursos" src="cursos.png" alt="Painel Tomos Mágicos">
+        </main>
+    </div>
 
-/* --- CONTAINER: tamanho fixo, fundo como imagem --- */
-.tela-container {
-    width: 1440px;
-    height: 1024px;
-    position: relative;
-    background-image: url('fundo.png');
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-}
-
-/* --- HEADER: flutua no topo do fundo --- */
-.header-superior {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 130px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 50px;
-    z-index: 10;
-}
-
-.logo {
-    width: 130px;
-    height: 130px;
-    object-fit: contain;
-}
-
-/* --- MENU --- */
-.menu-nav {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-}
-
-.menu-item {
-    font-family: "Tiny5", sans-serif;
-    font-weight: 400;
-    font-size: 36px;
-    text-decoration: underline;
-    transition: transform 0.2s ease;
-}
-
-.menu-item:hover {
-    transform: scale(1.05);
-}
-
-.nav-inicio {
-    background: linear-gradient(270deg, rgba(144, 13, 231, 1) 0%, rgba(227, 227, 227, 1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.nav-cursos {
-    background: radial-gradient(50% 50% at 73% 50%, rgba(203, 201, 201, 1) 0%, rgba(4, 156, 19, 1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.nav-quem-somos {
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(101, 98, 98, 1) 50%, rgba(239, 20, 20, 1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.nav-depoimentos {
-    -webkit-text-stroke: 1px #000000;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(19, 7, 255, 1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.nav-contatos {
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(251, 255, 0, 1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* --- CARD DE CURSOS: centralizado sobre o fundo --- */
-.conteudo-principal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.painel-cursos {
-    width: 1100px;
-    max-width: 100%;
-    object-fit: contain;
-}
+</body>
+</html>
