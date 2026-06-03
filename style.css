@@ -6,12 +6,15 @@
     -webkit-font-smoothing: antialiased;
 }
 
-html, body {
-    height: 100%;
+body {
     background-color: #0b0612;
+    /* Centraliza a tela inteira sem cortar o topo em monitores menores */
     display: flex;
     justify-content: center;
-    align-items: center; /* Centraliza a tela perfeitamente no meio do navegador */
+    align-items: flex-start;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 100vh;
 }
 
 img {
@@ -19,101 +22,101 @@ img {
     image-rendering: crisp-edges;
 }
 
-/* --- O CONTAINER PRINCIPAL --- */
+/* --- CONTAINER ÂNCORA (1440x1024) --- */
 .tela-container {
     width: 1440px;
     height: 1024px;
-    position: relative; /* Serve como âncora para os itens absolutos */
+    position: relative;
     background-image: url('fundo.png'); 
     background-size: 1440px 1024px;
     background-position: top left;
     background-repeat: no-repeat;
     overflow: hidden;
+    /* Sombra opcional para destacar os limites do seu site no navegador */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
 }
 
-/* --- O CABEÇALHO COM A MATEMÁTICA DO FIGMA --- */
-.header-superior {
-    position: absolute;
-    top: 0;
-    left: 48px; /* Margem lateral da arte original */
-    width: 1344px; /* Largura total (1440) - margens (96) */
-    height: 150px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
-}
-
+/* --- LOGO (Posição Exata do Figma) --- */
 .logo {
+    position: absolute;
+    top: 0px;
+    left: 48px;
     width: 150px;
     height: 150px;
     object-fit: contain;
 }
 
-/* --- MENU --- */
-.menu-nav {
-    display: flex;
-    gap: 36px;
-    align-items: center;
-}
-
-.menu-item {
-    font-family: "Tiny5", sans-serif;
-    font-weight: 400;
-    font-size: 40px;
-    text-decoration: underline;
-    transition: transform 0.2s ease;
-}
-
-.menu-item:hover {
-    transform: scale(1.05);
-}
-
-/* --- CORES DO MENU --- */
-/* O texto invisível (transparent) faz o navegador mostrar o degradê que está no background */
-
-.nav-inicio {
-    background: linear-gradient(270deg, #900DE7 0%, #E3E3E3 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration-color: #900DE7; /* Força a cor do sublinhado */
-}
-
-.nav-cursos {
-    background: radial-gradient(50% 50% at 73% 50%, #CBC9C9 0%, #049C13 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration-color: #049C13;
-}
-
-.nav-quem-somos {
-    background: linear-gradient(90deg, #FFFFFF 0%, #656262 50%, #EF1414 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration-color: #ffffff;
-}
-
-.nav-depoimentos {
-    background: linear-gradient(90deg, #FFFFFF 0%, #1307FF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration-color: #1307FF; /* Listra azul de volta! O "stroke" preto foi removido para não apagar a linha */
-}
-
-.nav-contatos {
-    background: linear-gradient(90deg, #FFFFFF 0%, #FBFF00 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration-color: #FBFF00;
-}
-
-/* --- O PAINEL DE CURSOS NA POSIÇÃO EXATA DO FIGMA --- */
+/* --- PAINEL CENTRAL (Posição Exata do Figma) --- */
 .painel-cursos {
     position: absolute;
-    top: 128px; /* Coordenada exata de descida do Figma */
-    left: 48px; /* Coordenada exata da lateral do Figma */
+    top: 128px;
+    left: 48px;
     width: 1344px; 
     height: 896px; 
     object-fit: contain;
     z-index: 5;
+}
+
+/* --- CONFIGURAÇÃO BASE DOS LINKS --- */
+.menu-item {
+    position: absolute;
+    font-family: "Tiny5", sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    text-decoration: underline;
+    text-underline-offset: 4px; /* Afasta a linha do texto para não embolar */
+    z-index: 10;
+    transition: transform 0.1s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-3px);
+}
+
+/* --- POSIÇÕES E CORES EXATAS DO MENU --- */
+
+.nav-inicio {
+    top: 51px;
+    left: 406px;
+    background: linear-gradient(270deg, #900DE7 0%, #E3E3E3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration-color: #900DE7 !important; /* !important burla o bug do Chrome que apaga a linha */
+}
+
+.nav-cursos {
+    top: 50px;
+    left: 525px;
+    background: radial-gradient(50% 50% at 73% 50%, #CBC9C9 0%, #049C13 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration-color: #049C13 !important;
+}
+
+.nav-quem-somos {
+    top: 50px;
+    left: 711px;
+    background: linear-gradient(90deg, #FFFFFF 0%, #656262 50%, #EF1414 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration-color: #ffffff !important;
+}
+
+.nav-depoimentos {
+    top: 50px;
+    left: 968px;
+    background: linear-gradient(90deg, #FFFFFF 0%, #1307FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration-color: #1307FF !important;
+    -webkit-text-stroke: 1px #000000; /* Borda preta restaurada */
+}
+
+.nav-contatos {
+    top: 50px;
+    left: 1237px;
+    background: linear-gradient(90deg, #FFFFFF 0%, #FBFF00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration-color: #FBFF00 !important;
 }
