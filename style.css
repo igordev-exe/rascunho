@@ -29,13 +29,14 @@ img {
     background-image: url('cursos.png'); 
     background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
     overflow: hidden;
 }
 
 /* --- CABEÇALHO --- */
 .header-superior {
+    position: absolute; /* Menu flutuando sobre a imagem */
+    top: 0;
+    left: 0;
     width: 100%;
     height: 150px;
     display: flex;
@@ -43,6 +44,7 @@ img {
     align-items: center;
     padding: 0 50px;
     margin-top: 20px;
+    z-index: 10; /* Garante que os links fiquem na frente de tudo */
 }
 
 .logo {
