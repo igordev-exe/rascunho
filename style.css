@@ -25,8 +25,8 @@ img {
     width: 1440px;
     height: 1024px;
     position: relative;
-    /* Fundo da biblioteca mágica */
-    background-image: url('img/livros-os-cursos.png'); 
+    /* Imagem de fundo da biblioteca (certifique-se de que ela também está no GitHub) */
+    background-image: url('livros-os-cursos.png'); 
     background-size: cover;
     background-position: center;
     display: flex;
@@ -109,7 +109,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 20px; /* Ajuste esse valor para subir ou descer o painel inteiro */
+    padding-top: 20px; 
 }
 
 .painel-cursos {
