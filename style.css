@@ -7,12 +7,11 @@
 }
 
 html, body {
+    height: 100%;
     background-color: #0b0612;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding-top: 20px;
-    min-height: 100vh;
+    align-items: center; /* Centraliza a tela perfeitamente no meio do navegador */
 }
 
 img {
@@ -20,11 +19,11 @@ img {
     image-rendering: crisp-edges;
 }
 
-/* --- CONTAINER PRINCIPAL (Matemática Perfeita) --- */
+/* --- O CONTAINER PRINCIPAL --- */
 .tela-container {
     width: 1440px;
-    height: 1024px; /* Altura exata travada */
-    position: relative;
+    height: 1024px;
+    position: relative; /* Serve como âncora para os itens absolutos */
     background-image: url('fundo.png'); 
     background-size: 1440px 1024px;
     background-position: top left;
@@ -32,30 +31,29 @@ img {
     overflow: hidden;
 }
 
-/* --- CABEÇALHO --- */
+/* --- O CABEÇALHO COM A MATEMÁTICA DO FIGMA --- */
 .header-superior {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 128px; /* Ocupa exatamente o espaço que sobra acima do painel */
+    left: 48px; /* Margem lateral da arte original */
+    width: 1344px; /* Largura total (1440) - margens (96) */
+    height: 150px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 50px;
     z-index: 10;
 }
 
 .logo {
-    width: 120px; /* Levemente ajustada para caber nos 128px sem encostar nas bordas */
-    height: 120px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
 }
 
 /* --- MENU --- */
 .menu-nav {
     display: flex;
-    gap: 40px;
+    gap: 36px;
     align-items: center;
 }
 
@@ -64,7 +62,6 @@ img {
     font-weight: 400;
     font-size: 40px;
     text-decoration: underline;
-    text-transform: none;
     transition: transform 0.2s ease;
 }
 
@@ -72,57 +69,51 @@ img {
     transform: scale(1.05);
 }
 
-/* --- CORES DO MENU (Com correção das linhas do sublinhado) --- */
+/* --- CORES DO MENU --- */
+/* O texto invisível (transparent) faz o navegador mostrar o degradê que está no background */
+
 .nav-inicio {
-    background: linear-gradient(270deg, rgba(144, 13, 231, 1) 0%, rgba(227, 227, 227, 1) 100%);
+    background: linear-gradient(270deg, #900DE7 0%, #E3E3E3 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-decoration-color: #900DE7; /* Força a cor na linha */
+    text-decoration-color: #900DE7; /* Força a cor do sublinhado */
 }
 
 .nav-cursos {
-    background: radial-gradient(50% 50% at 73% 50%, rgba(203, 201, 201, 1) 0%, rgba(4, 156, 19, 1) 100%);
+    background: radial-gradient(50% 50% at 73% 50%, #CBC9C9 0%, #049C13 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration-color: #049C13;
 }
 
 .nav-quem-somos {
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(101, 98, 98, 1) 50%, rgba(239, 20, 20, 1) 100%);
+    background: linear-gradient(90deg, #FFFFFF 0%, #656262 50%, #EF1414 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration-color: #ffffff;
 }
 
 .nav-depoimentos {
-    -webkit-text-stroke: 1px #000000;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(19, 7, 255, 1) 100%);
+    background: linear-gradient(90deg, #FFFFFF 0%, #1307FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-decoration-color: #1307FF; /* O azul vibrante do seu design de volta! */
+    text-decoration-color: #1307FF; /* Listra azul de volta! O "stroke" preto foi removido para não apagar a linha */
 }
 
 .nav-contatos {
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(251, 255, 0, 1) 100%);
+    background: linear-gradient(90deg, #FFFFFF 0%, #FBFF00 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration-color: #FBFF00;
 }
 
-/* --- ÁREA DO PAINEL DE CURSOS --- */
-.conteudo-principal {
-    position: absolute;
-    bottom: 0; /* Crava o painel na base da imagem, liberando o topo */
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    z-index: 5;
-}
-
+/* --- O PAINEL DE CURSOS NA POSIÇÃO EXATA DO FIGMA --- */
 .painel-cursos {
+    position: absolute;
+    top: 128px; /* Coordenada exata de descida do Figma */
+    left: 48px; /* Coordenada exata da lateral do Figma */
     width: 1344px; 
     height: 896px; 
     object-fit: contain;
-    filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.9));
+    z-index: 5;
 }
