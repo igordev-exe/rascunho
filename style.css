@@ -1,4 +1,4 @@
-/* --- RESET E CONFIGURAÇÕES BÁSICAS --- */
+/* --- RESET --- */
 * {
     margin: 0;
     padding: 0;
@@ -7,51 +7,47 @@
 }
 
 html, body {
+    width: 100%;
+    height: 100%;
     background-color: #0b0612;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Evita que o topo do site corte em telas menores */
-    padding-top: 20px;
-    min-height: 100vh;
+    align-items: center;
 }
 
-/* Renderização Pixel Art nítida para todas as imagens */
 img {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
 }
 
-/* --- CONTAINER PRINCIPAL --- */
+/* --- CONTAINER: tamanho fixo, fundo como imagem --- */
 .tela-container {
     width: 1440px;
-    min-height: 1024px;
+    height: 1024px;
     position: relative;
-    
-    /* AQUI ENTRA A BIBLIOTECA VAZIA */
-    background-image: url('fundo.png'); 
+    background-image: url('fundo.png');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    
-    /* Flexbox organizando menu em cima e painel embaixo */
-    display: flex;
-    flex-direction: column;
     overflow: hidden;
 }
 
-/* --- CABEÇALHO --- */
+/* --- HEADER: flutua no topo do fundo --- */
 .header-superior {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 150px;
+    height: 130px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 50px;
+    z-index: 10;
 }
 
 .logo {
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     object-fit: contain;
 }
 
@@ -65,9 +61,8 @@ img {
 .menu-item {
     font-family: "Tiny5", sans-serif;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 36px;
     text-decoration: underline;
-    text-transform: none;
     transition: transform 0.2s ease;
 }
 
@@ -75,7 +70,6 @@ img {
     transform: scale(1.05);
 }
 
-/* --- CORES DO MENU --- */
 .nav-inicio {
     background: linear-gradient(270deg, rgba(144, 13, 231, 1) 0%, rgba(227, 227, 227, 1) 100%);
     -webkit-background-clip: text;
@@ -107,19 +101,19 @@ img {
     -webkit-text-fill-color: transparent;
 }
 
-/* --- ÁREA DO PAINEL DE CURSOS --- */
+/* --- CARD DE CURSOS: centralizado sobre o fundo --- */
 .conteudo-principal {
-    width: 100%;
-    flex: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
-    padding-top: 10px; /* Ajuste o respiro entre o menu e o painel aqui */
+    align-items: center;
 }
 
 .painel-cursos {
-    width: 1344px; /* Largura original da imagem do Figma */
+    width: 1100px;
     max-width: 100%;
     object-fit: contain;
-    /* Sombra mágica para destacar o painel da biblioteca de fundo */
-    filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.9));
 }
