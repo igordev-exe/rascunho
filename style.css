@@ -1,0 +1,121 @@
+/* --- RESET E CONFIGURAÇÕES BÁSICAS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+    height: 100%;
+    background-color: #0b0612; /* Fundo escuro de segurança */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Renderização Pixel Art nítida para todas as imagens */
+img {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* --- CONTAINER PRINCIPAL (1440x1024) --- */
+.tela-container {
+    width: 1440px;
+    height: 1024px;
+    position: relative;
+    /* Fundo da biblioteca mágica */
+    background-image: url('img/livros-os-cursos.png'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* --- CABEÇALHO --- */
+.header-superior {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    margin-top: 20px;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+/* --- MENU --- */
+.menu-nav {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.menu-item {
+    font-family: "Tiny5", sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    text-decoration: underline;
+    text-transform: none;
+    transition: transform 0.2s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+}
+
+/* --- CORES DO MENU (COM OS GRADIENTES DO FIGMA) --- */
+.nav-inicio {
+    background: linear-gradient(270deg, rgba(144, 13, 231, 1) 0%, rgba(227, 227, 227, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-cursos {
+    background: radial-gradient(50% 50% at 73% 50%, rgba(203, 201, 201, 1) 0%, rgba(4, 156, 19, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-quem-somos {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(101, 98, 98, 1) 50%, rgba(239, 20, 20, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-depoimentos {
+    -webkit-text-stroke: 1px #000000;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(19, 7, 255, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-contatos {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(251, 255, 0, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- ÁREA PRINCIPAL DO PAINEL DE CURSOS --- */
+.conteudo-principal {
+    flex: 1; /* Ocupa o restante do espaço abaixo do menu */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px; /* Ajuste esse valor para subir ou descer o painel inteiro */
+}
+
+.painel-cursos {
+    width: 1344px; /* Mantém a proporção do Figma */
+    max-height: 896px;
+    object-fit: contain;
+    /* Adicionando um leve efeito de sombra mágica para destacar o painel do fundo */
+    filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.8));
+}
