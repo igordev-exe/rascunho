@@ -8,7 +8,7 @@
 
 html, body {
     height: 100%;
-    background-color: #0b0612; /* Fundo escuro de segurança */
+    background-color: #0b0612;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,16 +25,19 @@ img {
     width: 1440px;
     height: 1024px;
     position: relative;
-    /* Imagem de fundo apontando para cursos.png na raiz do repositório */
     background-image: url('cursos.png'); 
-    background-size: cover;
-    background-position: center;
+    
+    /* CORREÇÃO AQUI: Força a imagem a ter 1440x1024 em vez de usar 'cover', impedindo o zoom que quebrava o layout */
+    background-size: 1440px 1024px; 
+    background-position: top center;
+    background-repeat: no-repeat;
+    
     overflow: hidden;
 }
 
 /* --- CABEÇALHO --- */
 .header-superior {
-    position: absolute; /* Menu flutuando sobre a imagem */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -44,7 +47,7 @@ img {
     align-items: center;
     padding: 0 50px;
     margin-top: 20px;
-    z-index: 10; /* Garante que os links fiquem na frente de tudo */
+    z-index: 10;
 }
 
 .logo {
@@ -73,7 +76,7 @@ img {
     transform: scale(1.05);
 }
 
-/* --- CORES DO MENU (COM OS GRADIENTES DO FIGMA) --- */
+/* --- CORES DO MENU --- */
 .nav-inicio {
     background: linear-gradient(270deg, rgba(144, 13, 231, 1) 0%, rgba(227, 227, 227, 1) 100%);
     -webkit-background-clip: text;
