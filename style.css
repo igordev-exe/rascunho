@@ -11,23 +11,119 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    /* Sem padding-top para o site encostar perfeitamente no topo do ecrã */
+    padding-top: 20px;
+    padding-bottom: 20px;
     min-height: 100vh;
 }
 
-/* Renderização Pixel Art nítida para todas as imagens */
 img {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
 }
 
-/* --- CONTAINER ÂNCORA (1440x1024) --- */
+/* --- CONTAINER ÂNCORA --- */
 .tela-container {
     width: 1440px;
     height: 1024px;
     position: relative;
-    
-    /* Imagem de fundo corrigida para o nome exato no repositório */
-    background-image: url('fundo.png'); 
-    
-    background-size: 1440
+    background-color: #0b0612; /* Fica preto só se a imagem falhar miseravelmente */
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+/* --- O FUNDO A PROVA DE FALHAS --- */
+.fundo-biblioteca {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1440px;
+    height: 1024px;
+    object-fit: cover;
+    z-index: 1; /* Fica na camada de trás de tudo */
+}
+
+/* --- LOGO --- */
+.logo {
+    position: absolute;
+    top: 0px;
+    left: 48px;
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    z-index: 10;
+}
+
+/* --- PAINEL CENTRAL --- */
+.painel-cursos {
+    position: absolute;
+    top: 128px;
+    left: 48px;
+    width: 1344px; 
+    height: 896px; 
+    object-fit: contain;
+    z-index: 5;
+}
+
+/* --- CONFIGURAÇÃO BASE DOS LINKS --- */
+.menu-item {
+    position: absolute;
+    font-family: "Tiny5", sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    z-index: 10; /* Garante que os links ficam na frente do fundo */
+    transition: transform 0.1s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-3px);
+}
+
+/* --- POSIÇÕES E CORES EXATAS DO MENU --- */
+
+.nav-inicio {
+    top: 51px;
+    left: 406px;
+    background: linear-gradient(270deg, #900DE7 0%, #E3E3E3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration-color: #900DE7 !important; 
+}
+
+.nav-cursos {
+    top: 50px;
+    left: 525px;
+    background: radial-gradient(50% 50% at 73% 50%, #CBC9C9 0%, #049C13 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration-color: #049C13 !important;
+}
+
+.nav-quem-somos {
+    top: 50px;
+    left: 711px;
+    background: linear-gradient(90deg, #FFFFFF 0%, #656262 50%, #EF1414 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration-color: #ffffff !important;
+}
+
+.nav-depoimentos {
+    top: 50px;
+    left: 968px;
+    background: linear-gradient(90deg, #FFFFFF 0%, #1307FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration-color: #1307FF !important;
+    -webkit-text-stroke: 1px #000000;
+}
+
+.nav-contatos {
+    top: 50px;
+    left: 1237px;
+    background: linear-gradient(90deg, #FFFFFF 0%, #FBFF00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration-color: #FBFF00 !important;
+}
