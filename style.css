@@ -26,20 +26,16 @@ img {
     width: 1440px;
     height: 1024px;
     position: relative;
-    background-color: #0b0612; /* Fica preto só se a imagem falhar miseravelmente */
+    
+    /* A MÁGICA AQUI: O "./" diz ao servidor "procure exatamente nesta pasta" */
+    background-image: url('./fundo.png'); 
+    background-size: 1440px 1024px;
+    background-position: top left;
+    background-repeat: no-repeat;
+    
+    background-color: #0b0612;
     overflow: hidden;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
-}
-
-/* --- O FUNDO A PROVA DE FALHAS --- */
-.fundo-biblioteca {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1440px;
-    height: 1024px;
-    object-fit: cover;
-    z-index: 1; /* Fica na camada de trás de tudo */
 }
 
 /* --- LOGO --- */
@@ -72,7 +68,7 @@ img {
     font-size: 40px;
     text-decoration: underline;
     text-underline-offset: 4px;
-    z-index: 10; /* Garante que os links ficam na frente do fundo */
+    z-index: 10;
     transition: transform 0.1s ease;
 }
 
